@@ -1,0 +1,82 @@
+#端口80
+server:
+  port: 80
+  servlet:
+    context-path: /
+
+spring:
+  # druid数据源
+  datasource:
+    name: springboot
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 监控统计是用stat
+      filters: stat
+      # 连接数据库地址
+      url: jdbc:mysql://127.0.0.1:3306/qblog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      # 数据库用户名
+      username: root
+      # 数据库密码
+      password:
+      # 获取连接最大等待时间 单位毫秒
+      max-wait: 60000
+      # 检测需要关闭的连接的间隔 单位毫秒
+      time-between-eviction-runs-millis: 60000
+
+  # thymeleaf配置
+  thymeleaf:
+    # 缓存
+    cache: false
+    # 前缀
+    prefix: classpath:/templates/
+    # 后缀
+    suffix: .html
+    # 编码格式
+    encoding: UTF-8
+    # 模板编码 默认HTML LEGACYHTML5更加宽松，但是需要导入nekohtml依赖
+    mode: LEGACYHTML5
+    check-template-location: true
+
+  # devtools插件
+  devtools:
+    livereload:
+      enabled: true
+      port: 35729
+    #热部署开启
+    restart:
+      enabled: true
+
+  # 文件上传相关设置
+  servlet:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 50Mb
+
+#mybatis配置
+mybatis:
+  # mapper.xml文件路径
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.qstudy.qblog.admin.entity
+  configuration:
+    # 开启自动生成主键，并可以获取主键值
+    use-generated-keys: true
+    # 开启允许使用别名
+    use-column-label: true
+    # 开启转换为驼峰命名
+    map-underscore-to-camel-case: true
+
+# 分页插件配置
+pagehelper:
+  # 分页合理化参数 page<=0为第一页 page>最后一页为最后一页
+  reasonable: true
+  # 使用分页的数据库
+  pagehelperDialect: mysql
+  # 开启通过传入参数进行分页
+  support-methods-arguments: true
+
+# 日志打印
+logging:
+  #debug级别
+  level:
+    com.qstudy.qblog.admin.mapper: DEBUG
+

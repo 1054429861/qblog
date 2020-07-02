@@ -1,0 +1,92 @@
+package com.qstudy.qblog.admin.service;
+
+
+import com.qstudy.qblog.admin.dto.PageBean;
+import com.qstudy.qblog.admin.entity.Article;
+
+import com.qstudy.qblog.admin.exception.ModifyException;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import java.util.Date;
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ArticleServiceImplTest {
+    @Autowired
+    private ArticleService articleService;
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Test
+    public void findAll(){
+        List<Article> list = articleService.findAll();
+        for (Article article : list){
+            logger.info("list={}", article.getTitle());
+        }
+    }
+
+    @Test
+    public void findById() {
+        Article article = articleService.findById(1);
+        logger.info("article={}", article);
+    }
+
+    @Test
+    public void save() {
+        Article article = new Article();
+        article.setTitle("测试标题");
+        article.setCategory("测试");
+        article.setAuthor("涂陌");
+        article.setContent("## Markdown一级标题");
+        article.setState("存草稿");
+        article.setPublishTime(new Date());
+        article.setEditTime(new Date());
+
+        try {
+            articleService.save(article);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    @Test
+    public void update() {
+        Article article = new Article();
+        article.setId(2);
+        article.setTitle("不想测试了");
+        try {
+            articleService.update(article);
+        } catch (ModifyException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+    }
+
+    @Test
+    public void delete() {
+        try {
+            articleService.delete(2l);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    @Test
+    public void findByPage() {
+        PageBean pageBean = articleService.findByPage(new Article(), 1, 3);
+        logger.info("list={}", pageBean.getRows());
+    }
+
+    @Test
+    public void findFuzzyByTitle(){
+        List<Article> list = articleService.findFuzzyByTitle("haha");
+        logger.info("list={}", list);
+    }
+}
+
