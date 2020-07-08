@@ -26,8 +26,8 @@
         <div class="post-data">
             <time datetime="2017-02-25" itemprop="datePublished">发布于 [[${#dates.format(article.publishTime, 'yyy-MM-dd')}]]
             </time>
-            / <a th:href="'/category/' + ${article.category}" th:text="${article.category}"></a> / <a
-                href="#comments"><b th:text="${commentsCount}"></b> 条评论</a> /
+            / <a th:href="'/category/' + ${article.category}" th:text="${article.category}"></a>
+            / <!--  <a href="#comments"><b th:text="${commentsCount}"></b> 条评论</a> /-->
             <b th:text="${article.eyeCount}"></b> 浏览
         </div>
     </div>
@@ -47,7 +47,7 @@
     <div id="comments" ref="comments" class="clearfix">
         <span class="response"></span>
         <!-- 表单 -->
-        <form method="post" id="comment-form" class="comment-form" onsubmit="return TumoComment.subComment();">
+   <!--     <form method="post" id="comment-form" class="comment-form" onsubmit="return TumoComment.subComment();">
             <input hidden="hidden" name="articleId" id="articleId" th:value="${article.id}"/>
             <input hidden="hidden" name="articleTitle" id="articleTitle" th:value="${article.title}"/>
             <input maxlength="12" name="author" id="author" class="form-control input-control clearfix" placeholder="姓名 (*)" value="" required/>
@@ -55,7 +55,7 @@
             <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="网址 (http://)" value=""/>
             <textarea name="content" id="content" class="form-control" placeholder="回复" required minlength="5" maxlength="2000"></textarea>
             <button class="submit" id="misubmit">提交</button>
-        </form>
+        </form>-->
 
         <!-- 列表 -->
         <ol class="comment-list" th:if="${talkList.total} >= 0">

@@ -17,7 +17,7 @@ spring:
       # 数据库用户名
       username: root
       # 数据库密码
-      password:
+      password: 6109257
       # 获取连接最大等待时间 单位毫秒
       max-wait: 60000
       # 检测需要关闭的连接的间隔 单位毫秒
@@ -80,3 +80,9 @@ logging:
   level:
     com.qstudy.qblog.admin.mapper: DEBUG
 
+# oss配置
+
+endpoint: oss-cn-beijing.aliyuncs.com
+accessKeyId: LTAI4G3CRxfqnUKreHwZTNNT
+accessKeySecret: 6239elFrf1DSXA1hRd3NVgTJMqzjD6
+bucketName: qblogimg

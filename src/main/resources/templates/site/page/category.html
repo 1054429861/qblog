@@ -25,7 +25,7 @@
                     <div class="post-list-item-container">
                         <div class="item-label">
                             <div class="item-title">
-                                <a th:href="'/article/' + ${item.id}" th:text="${item.title}"></a>
+                                <a th:href="'/article/' + ${item.id}" th:text="${item.title}"</a>
                             </div>
                             <div class="item-meta clearfix">
                                 <div class="item-meta-date">发布于 [[${#dates.format(item.publishTime, 'yyyy-MM-dd')}]]
@@ -38,7 +38,7 @@
         </div>
     </div>
 </div>
-<style rel="stylesheet">
+<!--<style rel="stylesheet">
     footer{
         position: fixed !important;
         z-index: 2 !important;
@@ -46,7 +46,7 @@
         bottom: 48px !important;
         left: 0 !important;
     }
-</style>
+</style>-->
 <!-- footer -->
 <div th:replace="site/footer :: footer"></div>
 <!-- 公共的JS库 -->

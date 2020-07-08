@@ -50,7 +50,7 @@
         <div id="comments" ref="comments" class="clearfix">
             <span class="response"></span>
             <!-- 表单 -->
-            <form method="post" id="comment-form" class="comment-form" onsubmit="return TumoComment.subComment();">
+            <!--<form method="post" id="comment-form" class="comment-form" onsubmit="return TumoComment.subComment();">
                 <input hidden="hidden" name="articleId" id="articleId"/>
                 <input hidden="hidden" name="articleTitle" id="articleTitle"/>
                 <input hidden="hidden" name="sort" id="sort" th:value="${sort}"/>
@@ -59,7 +59,7 @@
                 <input type="url" name="url" id="url" class="form-control input-control clearfix" placeholder="网址 (http://)" value=""/>
                 <textarea name="content" id="content" class="form-control" placeholder="回复" required minlength="5" maxlength="2000"></textarea>
                 <button class="submit" id="misubmit">提交</button>
-            </form>
+            </form>-->
 
             <!-- 列表 -->
             <ol class="comment-list" th:if="${talkList.total} >= 0">

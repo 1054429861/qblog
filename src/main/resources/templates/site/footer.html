@@ -38,13 +38,13 @@
                     </li>
                 </div>
 
-                <div class="meta-item meta-comments">
+             <!--   <div class="meta-item meta-comments">
                     <h3 class="meta-title">最新评论</h3>
                     <li th:each="item : ${commentsList}">
                         <a th:if="${item.articleId != 0}" th:href="'/article/' + ${item.articleId}" th:text="${item.author} + ':  ' + ${item.content}"></a>
                         <a th:if="${item.articleId == 0}" th:text="${item.author} + ':  ' + ${item.content}"></a>
                     </li>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
